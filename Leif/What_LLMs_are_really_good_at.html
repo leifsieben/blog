@@ -11,43 +11,36 @@
     <h1>What LLMs are really good at</h1>
     <p>Published: December 27, 2025</p>
     
-    <p>I recently fell in love with a paper by Andrew Gordon Wilson entitled <a href="https://arxiv.org/pdf/2503.02113"> "Deep Learning is Not So Mysterious or Different" </a>
-        which I not only find to be a great title but but also a deeply thought-provoking piece of work. Essentially, Wilson argues 
-        that the strange generalization behaviour observed for LLMs (or in fact any large transformer architecture) of <em>double descent</em>
-        is in fact not so strange after all given you can observe the very same phenomenon for much simpler models too.
+    <p>I recently had a very strange night-time thought. The type of idea just before dozing off into sleep that makes you internally wake up and (at least in my case) 
+        forces you to get out of bed and write it down lest you forget it by morning. For some reason, I imagined myself a print-on-demand shop. To me it seemed that there is a 
+        clear moral hazard problem, in other words, how should I show myself to be a trustworthy and high-quality printer rather than a rip-off. Presumably, the easiest way to convince my customer 
+        that I'm legit would be to show them a first free sample. But, and this is how this thought came to me, wouldn't a lot of people exploit this who just wanted a single copy of some 
+        book? What would a strategy be to prevent this. 
     </p>
+    <p>It occurred to me that it would never occur to me anymore to put this question into Google. It's not really googlable. On the simplest level, most words in the question "How does a print-on-demand store offering 
+        one free sample prevent exloitation?" actually have nothing to do with the thing I'm looking for. <em>Semantically</em>, the question I'm asking and the answer I'm looking for are very far apart. For this reason, traditional 
+        Google search would likely not succeed. 
+    </p>
+    <p>Yet it is a question that most LLMs would excel at given the "correct" way to approach this problem would be, first, by induction and assigning this question to the larger <em>conceptual</em> group of "moral hazard problems". 
+        And then, secondly, look laterally among this group for methods that could work.
+    </p>
+    <p>It is in fact the perfect combination of an answer that is not really creative (perhaps you prefer the term "original") beyond using something well-established in one context in another context 
+        (which is creative by some standards some times, it should be admitted!) and yet requires too much lateral thinking (i.e. covering too much semantic distance) for Google to be likely to yield anything useful. 
+    I think most cases in which LLMs give me really, really good answers in my everyday life are of this type, lateral but uncreative.</p>
+    <p>Most coding questions are of this type as well. It's an algorithm or a snippet well-established somewhere that now just needs to be laterally applied here, e.g. replace all mentions of 
+        "car" with "bike" because you're coding for a different but analogous website now. </p>
 
-    <img src="images/soft_inductive_bias.png" alt="Soft inductive bias for simpler solutions combined with a flexible model that can fit many forms of the data yields optimal as well as generalizable models.">
-   
-    <b>Embracing flatland and the bliss of dimensionality</b>
-    
-    <p>Some of the deepest insights to me come from looking at these findings from a Bayesian perspective, which Wilson had actually done in a previous paper in 2022 
-        "Bayesian Deep Learning and a Probabilistic Persepective on Generalization". In that paper, Wilson and Izmailov argue for the preeminence of marginalization 
-        to understand inductive bias and why some models perform better than others. The marginal likelihood says how likely it is that we would sample the data 
-        \(\mathcal{D}\) given a prior over parameters \(p(w)\) which induces a distribution over models \(p(\mathcal{M})\), i.e.  
+    <p>On a related note, do try and figure out what problems LLMs are actually being tested on when it comes to the fancy new reasoning benchmarks everybody is focussed on these days. While it makes perfect sense you wouldn't publish them 
+        online (given that the LLM would train on it and then know the answer, essentially cheating the benchmark), it seems surprisingly hard to even just get example problems. 
+        The best example I could find online <a href="https://epoch.ai/frontiermath/benchmark-problems">FrontierMath</a> by EpochAI (who still get sponsored by OpenAI) actually does give some insightful examples and they seem legit. I want to say <em>concomitantly</em> 
+        the LLMs actually perform somewhere below 6% as of the writing of this blog. Much below most of the other math benchmarks where everybody seems to get >90% these days. The other good example I'm aware of is <a href="https://three.arcprize.org">ARC-3</a> where 
+        you can play the same games as the AI. Now, no models have so far been benchmarked on it but I'm certainly excited about the results.
     </p>
-    \[ p(\mathcal{D}|\mathcal{M}) = \int p(\mathcal{D}|\mathcal{M}, w)p(w)\, dw\]
-
-    <p>Wilson and Izmailov then define the inductive bias of a model as just that: the distribution of the support or \(p(\mathcal{D}|\mathcal{M})\), i.e. which 
-        hypotheses are supported and which are supported more than others. A good model hence might have very large support but has an inductive bias such that 
-        the right hypotheses (e.g. an equivariant solution over a non-symmetric one) get favoured. If we look at the probability mass of that inductive bias, the 
-        majority of the distribution will be at the correct hypothesis, in other words, sampling from this distribution means we're much more likely to get back our 
-        data set. Compare this to a distribution with the same support but that is much flatter (i.e. no inductive bias at all), sampling from this distribution will 
-        only gives us a small chance of recovering our original data set.
+    <p>In any case it seems wise not to overvalue any benchmark that has been around for a while (or, for that matter, any benchmark influenced by the hyperscaler labs themselves). Presumably, over time, data pollution of some form or another is 
+        inevitable for any benchmark that is out there. You could presumably address this by making problems more random (as ARC-3 attempts) but even then probably some general solution 
+        strategies would become more popular on the internet and your model would learn these over time. So best to rely on new, independent, tough benchmarks where you can actually have some certainty 
+        that the problems are sufficienlty hard to actually be impressed by. Otherwise, you're just hyping something up that did some useful if uncreative lateral thinking. 
     </p>
-    <p>We can now understand how Bayesian marginalization actually implicitly enforces simplicity: Simpler solutions will have more probability mass at the places 
-        of the actual data, i.e. the marginal likelihood of sampling our data set from such a distribution is much higher. In other words, maximizing marginal 
-        likelihood will favour simplicity if the underlying data lets itself be represented in simple ways. Interesing isn't it? 
-    </p>
-    <p>Finally, we know that big models typically converge on some flat solution space and that flat solutions are associated with models that generalize well. This 
-        becomes pretty intuitive now. Two things are also true about flat subspaces in high dimensions: (i.) these flat subspaces make up a lot of the volume 
-        in higher dimensions and (ii.) they are easily compressible. So finding a flat subspace with low loss is good in two ways: (i.) the marginal likelihood will 
-        be very high as this is a good solution that also has a lot of probability mass for this solution (i.e. has the right inductive bias); and (ii.) this will be 
-        a comparitively simple solution as it many different degenerate hypotheses exist in this flat space and hence the solution is quite compressible. Low training loss 
-        and low Kolmogorov complexity! Double win?
-    </p>
-
-    
     <a href="index.html">← Back to main.</a>
 </body>
 </html>
