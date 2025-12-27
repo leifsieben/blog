@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Hoping for a recession</title>
+</head>
+<body>
+    <h1>Hoping for a recession</h1>
+    <p>Published: December 27, 2025</p>
+    
+    <p>I recently fell in love with a paper by Andrew Gordon Wilson entitled <a href="https://arxiv.org/pdf/2503.02113"> "Deep Learning is Not So Mysterious or Different" </a>
+        which I not only find to be a great title but but also a deeply thought-provoking piece of work. Essentially, Wilson argues 
+        that the strange generalization behaviour observed for LLMs (or in fact any large transformer architecture) of <em>double descent</em>
+        is in fact not so strange after all given you can observe the very same phenomenon for much simpler models too.
+    </p>
+
+    <img src="images/soft_inductive_bias.png" alt="Soft inductive bias for simpler solutions combined with a flexible model that can fit many forms of the data yields optimal as well as generalizable models.">
+   
+    <b>Embracing flatland and the bliss of dimensionality</b>
+    
+    <p>Some of the deepest insights to me come from looking at these findings from a Bayesian perspective, which Wilson had actually done in a previous paper in 2022 
+        "Bayesian Deep Learning and a Probabilistic Persepective on Generalization". In that paper, Wilson and Izmailov argue for the preeminence of marginalization 
+        to understand inductive bias and why some models perform better than others. The marginal likelihood says how likely it is that we would sample the data 
+        \(\mathcal{D}\) given a prior over parameters \(p(w)\) which induces a distribution over models \(p(\mathcal{M})\), i.e.  
+    </p>
+    \[ p(\mathcal{D}|\mathcal{M}) = \int p(\mathcal{D}|\mathcal{M}, w)p(w)\, dw\]
+
+    <p>Wilson and Izmailov then define the inductive bias of a model as just that: the distribution of the support or \(p(\mathcal{D}|\mathcal{M})\), i.e. which 
+        hypotheses are supported and which are supported more than others. A good model hence might have very large support but has an inductive bias such that 
+        the right hypotheses (e.g. an equivariant solution over a non-symmetric one) get favoured. If we look at the probability mass of that inductive bias, the 
+        majority of the distribution will be at the correct hypothesis, in other words, sampling from this distribution means we're much more likely to get back our 
+        data set. Compare this to a distribution with the same support but that is much flatter (i.e. no inductive bias at all), sampling from this distribution will 
+        only gives us a small chance of recovering our original data set.
+    </p>
+    <p>We can now understand how Bayesian marginalization actually implicitly enforces simplicity: Simpler solutions will have more probability mass at the places 
+        of the actual data, i.e. the marginal likelihood of sampling our data set from such a distribution is much higher. In other words, maximizing marginal 
+        likelihood will favour simplicity if the underlying data lets itself be represented in simple ways. Interesing isn't it? 
+    </p>
+    <p>Finally, we know that big models typically converge on some flat solution space and that flat solutions are associated with models that generalize well. This 
+        becomes pretty intuitive now. Two things are also true about flat subspaces in high dimensions: (i.) these flat subspaces make up a lot of the volume 
+        in higher dimensions and (ii.) they are easily compressible. So finding a flat subspace with low loss is good in two ways: (i.) the marginal likelihood will 
+        be very high as this is a good solution that also has a lot of probability mass for this solution (i.e. has the right inductive bias); and (ii.) this will be 
+        a comparitively simple solution as it many different degenerate hypotheses exist in this flat space and hence the solution is quite compressible. Low training loss 
+        and low Kolmogorov complexity! Double win?
+    </p>
+
+    
+    <a href="index.html">← Back to main.</a>
+</body>
+</html>
