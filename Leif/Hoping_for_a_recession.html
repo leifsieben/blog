@@ -10,44 +10,60 @@
 <body>
     <h1>Hoping for a recession</h1>
     <p>Published: December 27, 2025</p>
+
+    <p>
+        <em>"The market has a remarkable ability to stay irrational longer than I may stay liquid."</em>
+    </p>
     
-    <p>I recently fell in love with a paper by Andrew Gordon Wilson entitled <a href="https://arxiv.org/pdf/2503.02113"> "Deep Learning is Not So Mysterious or Different" </a>
-        which I not only find to be a great title but but also a deeply thought-provoking piece of work. Essentially, Wilson argues 
-        that the strange generalization behaviour observed for LLMs (or in fact any large transformer architecture) of <em>double descent</em>
-        is in fact not so strange after all given you can observe the very same phenomenon for much simpler models too.
+    <p> What do you do in a bubble? Everybody can know you're in one - and you're still no better off. There's a reason why no VC is ever pessimistic: you can't short ideas. 
+        A venture capitalist makes bets on companies going up, there is in fact no way to make money when things go sideways, both literally as in stagnation or metaphorically as 
+        in the thing going bust. 
     </p>
 
-    <img src="images/soft_inductive_bias.png" alt="Soft inductive bias for simpler solutions combined with a flexible model that can fit many forms of the data yields optimal as well as generalizable models.">
-   
-    <b>Embracing flatland and the bliss of dimensionality</b>
-    
-    <p>Some of the deepest insights to me come from looking at these findings from a Bayesian perspective, which Wilson had actually done in a previous paper in 2022 
-        "Bayesian Deep Learning and a Probabilistic Persepective on Generalization". In that paper, Wilson and Izmailov argue for the preeminence of marginalization 
-        to understand inductive bias and why some models perform better than others. The marginal likelihood says how likely it is that we would sample the data 
-        \(\mathcal{D}\) given a prior over parameters \(p(w)\) which induces a distribution over models \(p(\mathcal{M})\), i.e.  
+    <p>Being 20 during a bubble that’s about to pop can feel like being handed a surfboard as the tide goes out. Like a venture capitalist, as a 20-year old you invest quite heavily. In 
+        fact investing is pretty much all you can do. You invest in time rather than capital but the logic remains: there is a lot of asymmetric upside if done right but that requires 
+        <em>something, somewhere</em> going <em>up</em>. 
     </p>
-    \[ p(\mathcal{D}|\mathcal{M}) = \int p(\mathcal{D}|\mathcal{M}, w)p(w)\, dw\]
-
-    <p>Wilson and Izmailov then define the inductive bias of a model as just that: the distribution of the support or \(p(\mathcal{D}|\mathcal{M})\), i.e. which 
-        hypotheses are supported and which are supported more than others. A good model hence might have very large support but has an inductive bias such that 
-        the right hypotheses (e.g. an equivariant solution over a non-symmetric one) get favoured. If we look at the probability mass of that inductive bias, the 
-        majority of the distribution will be at the correct hypothesis, in other words, sampling from this distribution means we're much more likely to get back our 
-        data set. Compare this to a distribution with the same support but that is much flatter (i.e. no inductive bias at all), sampling from this distribution will 
-        only gives us a small chance of recovering our original data set.
+    <p>The big advantage in your 20s is that you can be enormously risky with your time. You typically don't have to earn as much money (or none at all), can go without income for many months 
+        on end. In other words, you can quite insanely leverage yourself against time and take risks you would never consider in your 40s. If done well, this should result in great pay off, e.g. being 
+        engineer no. 7 at Google, writing a <em>Nature</em> paper, landing an insane job you would have never thought you'd like. The lower bound being some good memories and you being just as well off 
+        as before. That logic holds just as much in a bubble. But it actually becomes harder to take <em>real</em> risk. 
     </p>
-    <p>We can now understand how Bayesian marginalization actually implicitly enforces simplicity: Simpler solutions will have more probability mass at the places 
-        of the actual data, i.e. the marginal likelihood of sampling our data set from such a distribution is much higher. In other words, maximizing marginal 
-        likelihood will favour simplicity if the underlying data lets itself be represented in simple ways. Interesing isn't it? 
-    </p>
-    <p>Finally, we know that big models typically converge on some flat solution space and that flat solutions are associated with models that generalize well. This 
-        becomes pretty intuitive now. Two things are also true about flat subspaces in high dimensions: (i.) these flat subspaces make up a lot of the volume 
-        in higher dimensions and (ii.) they are easily compressible. So finding a flat subspace with low loss is good in two ways: (i.) the marginal likelihood will 
-        be very high as this is a good solution that also has a lot of probability mass for this solution (i.e. has the right inductive bias); and (ii.) this will be 
-        a comparitively simple solution as it many different degenerate hypotheses exist in this flat space and hence the solution is quite compressible. Low training loss 
-        and low Kolmogorov complexity! Double win?
+    <p>A lot of the stuff that seemed risky prior to the bubble, e.g. starting an AI startup, now becomes so middle of the road and so certain to get funding as well as so likely to be just one more me-too 
+        company that it actually is a pretty low risk thing. It's fine to do it but it very much is not orthogonal or <em>risky</em> in the sense I'd like it to use the word here. You're certainly taking a lot of 
+        <em>systemic</em> risk given what would happen in a major market correction, when the dumb money leaves, and your valuation with it. In other words, that startup is surprisingly upside limited <em> in expectation</em>. 
+        But it is specifically not the kind of <em>personal</em> risk where you leverage your time into something that has a low chance succeeding early on but if it does, succeeds big. 
     </p>
 
-    
+    <b>Be your own infra</b>
+    <p>In other words, you can't go <em>short</em> on yourself. If you studied software engineering for the past 5 years and just found yourself in a job market that doesn't nearly have the same 
+    demand for you as it did some years ago ... well you're not going to bet your life's happiness on your cousin Bob who studied medicine. (If you ask your mom that's probably anyway what you should have studied in the first place). 
+    </p>
+    <p>The oft repeated advice in a gold rush says that you should be <em>selling the picks and shovels</em>. In other words, be the infrastructure all the gold rush relies on. Now that is well meant and often sound advice. It is, however, non-obvious how you would do that in your own life in a world 
+        in which most things are stagnant and what is not stagnant seems wildly overvalued and ripe for a correction (but you just don't know when). How do you become your own infra? 
+    </p>
+    <p>Do invest in your skills. Do hard things that require thick desires. There are certain things that are like investing in gold, they don't tend to lose value and if anything go up in price in a recession. Read widely. Build something 
+        that someone will use before they even knew they need it. Don't do the obvious. Learn plumbing. Meet new people. Do go to grad school if you think you can do genuinely cool research, the opportunity cost (long-term! the bumper price might be a different story) is likely as low 
+        as it'll get in your lifetime.   
+    </p>
+    <p>When the music stops, make sure you're the toughest, most independent, most adaptable person left.</p>
+
+    <b> Is this peak GDP? </b>
+    <p>It barely needs reminding of what a horrible job market this is for most people. Don't fire - don't hire appears to be the motto <em>du jour</em>. To say the obvious: it would be horrible if this continued. Nobody likes a recession. 
+        People lose jobs. Retirement savings are wiped out. It can take decades for company valuations to recover, in fact Citigroup still is only worth half as much as just before 2008. Santander only surpassed its pre-2007 valuation this spring. But as a 20-year old 
+        you have an easier time finding a new job. The consequences of losing yours are not as bad. You don't need your retirement now and in fact there's never a better time to buy stocks than in a recession, you're buying the same company 
+        but with a rebate. And, most importantly, burning the forests means new shoots can grow. Getting into OpenAI now is too late. Getting into OpenAI into 2015 (ca. one long American grad school after the 08 financial crisis) would have been insane. 
+    </p>
+    <p>So no, you can't short your life. But you can go long on other things and it does <em>in expectation</em> pay off to go the unbeaten path, to live orthogonal, to invest in the unpopular because it's only way to ever have an \(\alpha\), have an edge. 
+    What would be much worse for all of us, that is this generation, is that this state of stagnation should remain. An undynamic job market, no entry level hiring, mostly companies just trying to save what they have rather than build what they shall pass on. 
+    Surely, we must all hope that this is <em>not</em> peak GDP. The doomer's case would be that after a sizeable downward correction, we all have much less disposable income (Americans in particular but the global population in total has become 
+    much more exposed to the stock market), which further cools down the economy. During this prolonged recession, we continue to unravel the global order of free trade all the while populations are continuously shrinking, yielding ever fewer ideas.</p>
+    <p>That would mean peeak GDP. At least we all went out in a big bang with the first four trillion dollar valuation in history. I don't think it's likely. In fact, I can't think so. If I did there would be very little point in ever hoping rejoining this economy 
+        and the rational thing to do would probably be to homestead. But in fact I do believe there is true value to be had out there: more diseases to be cured, more efficient industrial processes to be developed, new markets to be unlocked. Ideally, one would bet on 
+        those things rather than the short-term. 
+    </p>
+    <p> So what do you do in a bubble? You hope for a recession. </p>
+
     <a href="index.html">← Back to main.</a>
 </body>
 </html>
