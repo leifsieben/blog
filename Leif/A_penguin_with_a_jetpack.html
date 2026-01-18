@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>A penguin with a jetpack: can scale just save us all?</title>
+</head>
+<body>
+    <h1>A penguin with a jetpack: can scale just save us all?</h1>
+    <p>Published: January 18th, 2026</p>
+
+    <p>
+        One of the big revelations in the history of AI was Richard Sutton's bitter lesson. In essence, it states that instead of teaching machines how "we <em>think</em> we think" rather we should build universal programs capable of learning as well as improving by themselves. A lot of deadends in AI were the result of smart people coming up with smart algorithmic ideas that helped improve performance on a particular problem (image captioning, translation, etc.). Unfortunately, none of these generalized to any other task and were thus never constituted progress towards a general form of intelligence. A similar thing was pointed out by Hans Moravec when he stated "the performance of AI machines tends to improve at the same pace that AI researchers get access to faster hardware" as early as 1998. He also quite accurately extrapolates this outwards and predicts "that the required hardware will be available in cheap machines in the 2020s" to match the human brain. 
+    </p>
+    <p>
+        Scale is the fundamental assumption of modern AI: scale your model bigger and its performance will improve across tasks and entirely new capabilites will emerge. We can see glimpses of this even in AI4Science where <a href="https://arxiv.org/abs/2509.18480">Apple</a> recently showed that you can essentially recover >90% of AlphaFold's performance by deleting all of the complicated, really cleve architecture and just replace everything with really large transformers. Modern hyperscalers operate at the edge of data scaling (the oft forgotten other half of the Chinchilla scaling laws), more or less at the edge of parameter scale, we've scaled inference time to what can be reasonably expected from a user (or to yield any additional gain) - this comes with the exception of multi-agent systems (MAS) which also scale inference time (by distributing it across multiple agents) and which we're still very much in the process of scaling -, and we're still scaling RL (or "self play") wherever still possible.  
+    </p>
+    <p>
+        With enough power everything lifts off. Continuing this aeronautic metaphor: the question today is whether we have moved beyond designing bird-like wing-suits for humans to engineering jet-powered airplanes; or have we strapped a jet-pack to a penguin and are now cheering that it can finally fly? 
+    </p>
+    <p>
+        For now we just now that it flies. Of course at the beginning everything feels like a penguin with a jetpack. Iteration 0 is never perfect. Perhaps the more concrete questions should be: how much bigger can that jet-pack get? What are the fundamental capaiblity limits of the penguin (or do any such even exist)? It's related to a question I've been thinking about anyway posed by AG Wilson: if sufficiently large and flexible models (with a soft simplicty bias) can learn symmetries of scientific problems by themselves, should we just let them learn everything independently or still hard-encode what we know about the world anyway? 
+    </p>
+    <a href="index.html">← Back to main.</a>
+</body>
+</html>
